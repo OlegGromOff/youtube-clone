@@ -28,7 +28,8 @@ async function bootstrap() {
 	// 	origin: 'http://localhost:3000',
 	// 	credentials: true
 	// })
-	const allowedOrigins = ['http://localhost:3000']
+	
+	const allowedOrigins = ['http://localhost:3000', 'https://youtube-clone-eight-tan.vercel.app']
 
 	if (process.env.FRONTEND_URL) { allowedOrigins.push(process.env.FRONTEND_URL) }
 
