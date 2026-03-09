@@ -1,4 +1,4 @@
-import { EmailService } from '@/email/email.service'
+import { EmailService } from '../email/email.service'
 import { PrismaService } from '@/prisma.service'
 import { UserService } from '@/user/user.service'
 import {
@@ -48,10 +48,16 @@ export class AuthService {
 		// 	user.email,
 		// 	`http://localhost:4200/verify-email?token=${user.verificationToken}`
 		// )
-		await this.emailService.sendVerification( 
-			user.email, 
-			`${process.env.CLIENT_URL}/verify-email?token=${user.verificationToken}`
-		)
+		
+		//  this.emailService.sendVerification( 
+		// 	user.email, 
+		// 	`${process.env.CLIENT_URL}/verify-email?token=${user.verificationToken}`
+		// )
+
+		this.emailService.sendVerification(
+			user.email,
+			`${process.env.CLIENT_URL}/verify-email?token=${user.verificationToken}`)
+			.catch(err => console.error('Email error:', err))
 
 		return this.buildResponseObject(user)
 	}
