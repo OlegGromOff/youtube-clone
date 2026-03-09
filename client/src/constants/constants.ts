@@ -3,3 +3,4 @@ export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4200
 export const IS_CLIENT = typeof window !== 'undefined'
 
 export const SITE_NAME = 'Youtube clone'
+export const SERVER_URL = process.env.SERVER_URL || 'http://localhost:4200'
