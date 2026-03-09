@@ -5,6 +5,8 @@ import { ChannelVideos } from './ChannelVideos'
 import { channelService } from '@/services/channel.service'
 import type { TPageSlugProp } from '@/types/page.types'
 
+export const dynamic = 'force-dynamic'
+
 export const revalidate = 100
 
 export async function generateMetadata({ params }: TPageSlugProp): Promise<Metadata> {
@@ -22,13 +24,13 @@ export async function generateMetadata({ params }: TPageSlugProp): Promise<Metad
 	}
 }
 
-export async function generateStaticParams() {
-	const { data } = await channelService.getAll()
+// export async function generateStaticParams() {
+// 	const { data } = await channelService.getAll()
 
-	return data.map(channel => ({
-		slug: channel.slug
-	}))
-}
+// 	return data.map(channel => ({
+// 		slug: channel.slug
+// 	}))
+// }
 
 export default async function Page({ params }: TPageSlugProp) {
 	const slug = (await params).slug

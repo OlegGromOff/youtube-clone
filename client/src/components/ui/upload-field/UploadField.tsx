@@ -5,12 +5,24 @@ import type { FieldError } from 'react-hook-form'
 import { ImagePreview } from './ImagePreview'
 import { useUpload } from './useUpload'
 
+// interface Props {
+// 	folder?: string
+// 	value?: string
+// 	onChange: (url: string) => void
+// 	label: string
+// 	error?: FieldError
+// 	className?: string
+// 	isImage?: boolean
+// 	overlay?: string
+// 	sizePreview?: [number, number]
+// }
+
 interface Props {
 	folder?: string
 	value?: string
-	onChange: (url: string) => void
+	onChange: (...event: any[]) => void
 	label: string
-	error?: FieldError
+	error?: any
 	className?: string
 	isImage?: boolean
 	overlay?: string

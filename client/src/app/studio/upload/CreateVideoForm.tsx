@@ -10,8 +10,13 @@ import { VideoForm } from './VideoForm'
 import { studioVideoService } from '@/services/studio/studio-video.service'
 import type { IVideoFormData } from '@/types/studio-video.types'
 
+// interface Props {
+// 	form: UseFormReturn<IVideoFormData, any, undefined>
+// 	isReadyToPublish: boolean
+// }
+
 interface Props {
-	form: UseFormReturn<IVideoFormData, any, undefined>
+	form: UseFormReturn<IVideoFormData>
 	isReadyToPublish: boolean
 }
 

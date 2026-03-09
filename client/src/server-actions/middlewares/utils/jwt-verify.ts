@@ -25,7 +25,8 @@ export async function jwtVerifyServer(accessToken: string) {
 
         const { payload } = await jose.jwtVerify(cleanToken, secret)
 
-        return payload as ITokenInside
+        // return payload as ITokenInside
+        return (payload as unknown) as ITokenInside
     } catch (error) {
         if (error instanceof Error && error.message.includes('exp claim timestamp check failed')) {
             console.log('Токен истек')

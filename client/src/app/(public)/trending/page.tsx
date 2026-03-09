@@ -8,6 +8,8 @@ import { PAGE } from '@/config/public-page.config'
 
 import { videoService } from '@/services/video.service'
 
+export const dynamic = 'force-dynamic'
+
 export const revalidate = 100
 
 export const metadata: Metadata = {

@@ -6,6 +6,8 @@ import { SingleVideo } from './SingleVideo'
 import { videoService } from '@/services/video.service'
 import type { TPagePublicIdProp } from '@/types/page.types'
 
+export const dynamic = 'force-dynamic'
+
 export const revalidate = 100
 
 export async function generateMetadata({ params }: TPagePublicIdProp): Promise<Metadata> {
@@ -23,13 +25,13 @@ export async function generateMetadata({ params }: TPagePublicIdProp): Promise<M
 	}
 }
 
-export async function generateStaticParams() {
-	const data = await videoService.getAll()
+// export async function generateStaticParams() {
+// 	const data = await videoService.getAll()
 
-	return data.data.videos.map(video => ({
-		publicId: video.publicId
-	}))
-}
+// 	return data.data.videos.map(video => ({
+// 		publicId: video.publicId
+// 	}))
+// }
 
 export default async function VideoPage({ params }: TPagePublicIdProp) {
 	const publicId = (await params).publicId

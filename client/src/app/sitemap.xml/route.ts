@@ -4,6 +4,8 @@ import { PAGE } from '@/config/public-page.config'
 
 import { videoService } from '@/services/video.service'
 
+export const dynamic = 'force-dynamic'
+
 const url = 'https://redvideo.com'
 
 export async function GET(request: Request) {
@@ -31,3 +33,4 @@ export async function GET(request: Request) {
 
 	return getServerSideSitemap(fields)
 }
+

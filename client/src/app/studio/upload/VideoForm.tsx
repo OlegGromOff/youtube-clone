@@ -11,9 +11,13 @@ import { UploadSkeleton } from './UploadSkeleton'
 import { VideoFormRightSide } from './VideoFormRightSide'
 import type { IVideoFormData } from '@/types/studio-video.types'
 
+// interface Props {
+// 	isPending?: boolean
+// 	form: UseFormReturn<IVideoFormData, any, undefined>
+// }
 interface Props {
 	isPending?: boolean
-	form: UseFormReturn<IVideoFormData, any, undefined>
+	form: UseFormReturn<IVideoFormData>
 }
 
 export function VideoForm({
