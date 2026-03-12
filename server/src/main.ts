@@ -12,6 +12,8 @@ import { json, urlencoded } from 'express'
 
 async function bootstrap() {
 	const app = await NestFactory.create<NestExpressApplication>(AppModule)
+	app.use(json({ limit: '100mb' })) 
+	app.use(urlencoded({ extended: true, limit: '100mb' }))
 
 	const prismaService = app.get(PrismaService)
 	await prismaService.enableShutdownHooks(app)
@@ -37,8 +39,7 @@ async function bootstrap() {
 	app.enableCors({ origin: [ 'https://youtube-clone-eight-tan.vercel.app', 'https://youtube-clone-eight-tan.vercel.app/', 'http://localhost:3000' ], credentials: true, methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', allowedHeaders: ['Content-Type', 'Authorization', 'set-cookie', 'recaptcha'], exposedHeaders: ['set-cookie'] })
 
 	app.disable('x-powered-by')
-	app.use(json({ limit: '100mb' })) 
-	app.use(urlencoded({ extended: true, limit: '100mb' }))
+	
 
 	await app.listen(process.env.PORT || 4200, '0.0.0.0')
 }
