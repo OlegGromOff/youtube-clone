@@ -2,12 +2,14 @@
 const nextConfig = { 
   reactStrictMode: true,
   poweredByHeader: false,
-  images: {
-    remotePatterns: [{
-      protocol: 'https',
-      hostname: 'youtube-clone-j94d.onrender.com',
-    }],
-  }, 
+  images: { 
+	remotePatterns: [ { 
+		protocol: 'https', 
+		hostname: 'youtube-clone-j94d.onrender.com', 
+		port: '', 
+		pathname: '/uploads/**', 
+	}, ],
+ },
   async rewrites() {
     return [{
       source: '/uploads/:path*',
