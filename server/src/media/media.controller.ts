@@ -23,7 +23,9 @@ export class MediaController {
 	@HttpCode(200)
 	@Post()
 	@Auth()
-	@UseInterceptors(FilesInterceptor('file'))
+	// @UseInterceptors(FilesInterceptor('file'))
+	@UseInterceptors(FilesInterceptor('file', 10, { limits: { fileSize: 1024 * 1024 * 100 } }))
+
 	@UsePipes(new FolderValidationPipe())
 	async uploadMediaFile(
 		@UploadedFiles(FileValidationPipe) mediaFile: IFile[],
