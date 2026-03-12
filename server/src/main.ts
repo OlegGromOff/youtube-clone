@@ -30,15 +30,13 @@ async function bootstrap() {
 	// 	credentials: true
 	// })
 	
-	const allowedOrigins = ['http://localhost:3000', 'https://youtube-clone-eight-tan.vercel.app']
+	const allowedOrigins = [ 'https://youtube-clone-eight-tan.vercel.app', 'https://youtube-clone-eight-tan.vercel.app/', 'http://localhost:3000' ]
 
 	if (process.env.FRONTEND_URL) { allowedOrigins.push(process.env.FRONTEND_URL) }
 
-	// app.enableCors({ origin: allowedOrigins, credentials: true })
+	app.enableCors({ origin: allowedOrigins, credentials: true, methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', allowedHeaders: ['Content-Type', 'Authorization', 'set-cookie'], exposedHeaders: ['set-cookie'] })
 
-	app.enableCors({ origin: [ '', 'http://localhost:3000' ], credentials: true, methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', allowedHeaders: ['Content-Type', 'Authorization', 'set-cookie'], exposedHeaders: ['set-cookie'] })
 	app.disable('x-powered-by')
-
 	app.use(json({ limit: '100mb' })) 
 	app.use(urlencoded({ extended: true, limit: '100mb' }))
 
