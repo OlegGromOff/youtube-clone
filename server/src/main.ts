@@ -41,8 +41,7 @@ async function bootstrap() {
 
 	app.enableCors({ origin: [ 'https://youtube-clone-eight-tan.vercel.app', 'https://youtube-clone-eight-tan.vercel.app/', 'http://localhost:3000' ], credentials: true, methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', allowedHeaders: ['Content-Type', 'Authorization', 'set-cookie', 'recaptcha'], exposedHeaders: ['set-cookie'] })
 
-	app.disable('x-powered-by')
-	
+	app.getHttpAdapter().getInstance().disable('x-powered-by')	
 
 	await app.listen(process.env.PORT || 4200, '0.0.0.0')
 }
