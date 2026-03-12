@@ -35,8 +35,8 @@ async function bootstrap() {
 	if (process.env.FRONTEND_URL) { allowedOrigins.push(process.env.FRONTEND_URL) }
 
 	// app.enableCors({ origin: allowedOrigins, credentials: true })
-	app.enableCors({ origin: 'https://youtube-clone-eight-tan.vercel.app/', credentials: true, exposedHeaders: 'set-cookie' })
 
+	app.enableCors({ origin: ['', 'https://youtube-clone-eight-tan.vercel.app/', 'http://localhost:3000' ], credentials: true, exposedHeaders: ['set-cookie'] })
 	app.disable('x-powered-by')
 
 	app.use(json({ limit: '100mb' })) 
