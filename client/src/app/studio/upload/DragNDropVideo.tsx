@@ -83,7 +83,7 @@ export function DragNDropVideo({ reset }: Props) {
 			</p>
 			<input
 				type='file'
-				accept='video/*'
+				accept='video/*,image/*'
 				className='hidden'
 				onChange={uploadFile}
 			/>
