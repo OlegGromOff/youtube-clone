@@ -39,7 +39,8 @@ async function bootstrap() {
 
 	app.disable('x-powered-by')
 
-	app.use(json({ limit: '100mb' })) app.use(urlencoded({ extended: true, limit: '100mb' }))
+	app.use(json({ limit: '100mb' })) 
+	app.use(urlencoded({ extended: true, limit: '100mb' }))
 
 	await app.listen(process.env.PORT || 4200, '0.0.0.0')
 }
