@@ -5,12 +5,17 @@ import type { IFileResponse, IProgressProcessingResponse } from '@/types/file.ty
 class FileService {
 	private _UPLOAD_FILE = '/upload-file'
 
-	upload(file: FormData, folder?: string) {
-		return instance.post<IFileResponse[]>(this._UPLOAD_FILE, file, {
-			params: { folder },
-			headers: { 'Content-Type': 'multipart/form-data' }
-		})
-	}
+	// upload(file: FormData, folder?: string) {
+	// 	return instance.post<IFileResponse[]>(this._UPLOAD_FILE, file, {
+	// 		params: { folder },
+	// 		headers: { 'Content-Type': 'multipart/form-data' }
+	// 	})
+	// }
+
+	upload(file: FormData, folder?: string) { 
+		return instance.post(this._UPLOAD_FILE, file, { 
+			params: { folder } 
+		}) }
 
 	getProcessingStatus(fileName: string) {
 		return instance.get<IProgressProcessingResponse>(`${this._UPLOAD_FILE}/status/${fileName}`)
