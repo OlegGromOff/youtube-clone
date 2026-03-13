@@ -10,9 +10,9 @@ import { EnumTokens } from '@/types/auth.types'
 
 const options: CreateAxiosDefaults = {
 	baseURL: API_URL,
-	headers: {
-		'Content-Type': 'application/json'
-	},
+	// headers: {
+	// 	'Content-Type': 'application/json'
+	// },
 	withCredentials: true
 }
 
