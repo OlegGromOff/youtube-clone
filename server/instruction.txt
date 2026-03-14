@@ -41,3 +41,6 @@ red-video - название твое базы
 и туда добавь postgresql://oleggromov:1398@localhost:5432/youtube?schema=public
 
 Чтобы фронт мог использовать сервер то его надо каждый раз запускать bun start:dev
+
+Для БД я использую supabase
+Backend on Render.com

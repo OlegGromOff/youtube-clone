@@ -39,7 +39,15 @@ async function bootstrap() {
 
 	if (process.env.FRONTEND_URL) { allowedOrigins.push(process.env.FRONTEND_URL) }
 
-	app.enableCors({ origin: [ 'https://youtube-clone-eight-tan.vercel.app', 'https://youtube-clone-eight-tan.vercel.app/', 'http://localhost:3000' ], credentials: true, methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', allowedHeaders: ['Content-Type', 'Authorization', 'set-cookie', 'recaptcha'], exposedHeaders: ['set-cookie'] })
+	app.enableCors({ 
+		origin: [ 
+			'https://youtube-clone-eight-tan.vercel.app', 
+			'https://youtube-clone-eight-tan.vercel.app/', 
+			'http://localhost:3000' ], 
+			credentials: true, 
+			methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', 
+			allowedHeaders: ['Content-Type', 'Authorization', 'set-cookie', 'recaptcha'], 
+			exposedHeaders: ['set-cookie'] })
 
 	app.getHttpAdapter().getInstance().disable('x-powered-by')	
 
