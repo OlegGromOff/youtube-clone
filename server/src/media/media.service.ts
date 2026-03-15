@@ -31,6 +31,7 @@ export class MediaService {
 
 		if (this.isVideo(file)) {
 			await writeFile(filePath, file.buffer)
+			this.processingStatus.set(uniqueFileName, 100)
 
 			// const { width: inputWidth, height: inputHeight } =
 			// 	await this.getVideoResolution(filePath)
