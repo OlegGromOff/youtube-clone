@@ -11,7 +11,8 @@ import { IResolution, RESOLUTIONS } from './resolution.data'
 
 @Injectable()
 export class MediaService {
-	private readonly _outputDir = path.join(appRootPath, 'uploads')
+	// private readonly _outputDir = path.join(appRootPath, 'uploads')
+	private readonly _outputDir = path.join(process.cwd(), 'uploads')
 
 	private processingStatus: Map<string, number> = new Map()
 
@@ -31,27 +32,28 @@ export class MediaService {
 		if (this.isVideo(file)) {
 			await writeFile(filePath, file.buffer)
 
-			const { width: inputWidth, height: inputHeight } =
-				await this.getVideoResolution(filePath)
+			// const { width: inputWidth, height: inputHeight } =
+			// 	await this.getVideoResolution(filePath)
 
-			const maxResolution = this.mapResolution(inputWidth, inputHeight)
+			// const maxResolution = this.mapResolution(inputWidth, inputHeight)
 
-			this.processingStatus.set(uniqueFileName, 0)
+			// this.processingStatus.set(uniqueFileName, 0)
 
-			this.processVideo(filePath, uniqueFileName, folderLowerCase)
-				.then(() => {
-					this.processingStatus.set(uniqueFileName, 100)
-				})
-				.catch(err => {
-					this.processingStatus.set(uniqueFileName, -1)
-					console.error('Ошибка при обработке видео:', err)
-				})
+			// this.processVideo(filePath, uniqueFileName, folderLowerCase)
+			// 	.then(() => {
+			// 		this.processingStatus.set(uniqueFileName, 100)
+			// 	})
+			// 	.catch(err => {
+			// 		this.processingStatus.set(uniqueFileName, -1)
+			// 		console.error('Ошибка при обработке видео:', err)
+			// 	})
 
 			return [
 				{
 					url: `/uploads/${folderLowerCase}/${uniqueFileName}`,
 					name: uniqueFileName,
-					maxResolution
+					// maxResolution
+					maxResolution: EnumVideoPlayerQuality['720p'] // Заглушка
 				}
 			]
 		} else {
