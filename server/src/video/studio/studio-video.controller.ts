@@ -44,7 +44,7 @@ export class StudioVideoController {
 	@Auth()
 	async create(
 		@CurrentUser('channel') channel: Channel,
-		@Body() dto: CreateVideoDto
+		@Body() dto: CreateVideoDto,
 	) {
 		return this.studioVideoService.create(channel.id, dto)
 	}
