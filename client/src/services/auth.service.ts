@@ -75,7 +75,7 @@ class AuthService {
 			// domain: 'localhost',
 			//1h
 			expires: 1 / 24,
-			sameSite: 'lax',
+			sameSite: 'none',
 			secure: true
 		})
 	}
